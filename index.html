@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITWT311 - Lab Task 2B</title>
+    <link rel="icon" href="data:,">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; background-color: #f9f9f9; }
+        h1, h2 { color: #333; }
+        .section { background: #fff; padding: 15px 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 12px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #007bff; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px; }
+        button:hover { background-color: #0056b3; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 5px; display: flex; justify-content: space-between; align-items: center; }
+        .delete-btn { background-color: #dc3545; padding: 4px 8px; font-size: 12px; }
+        .delete-btn:hover { background-color: #a71d2a; }
+        #msg { padding: 10px; margin-bottom: 15px; border-radius: 4px; font-weight: bold; display: none; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+
+    <h1>Student Course Manager - Typed (TypeScript)</h1>
+    
+    <!-- رسائل التنبيه والخطأ -->
+    <div id="msg"></div>
+
+    <!-- قسم إضافة طالب -->
+    <div class="section">
+        <h2>Add Student</h2>
+        <div class="form-group">
+            <label for="studentNameInput">Student Name:</label>
+            <input type="text" id="studentNameInput" placeholder="Enter student full name">
+        </div>
+        <button id="addStudentBtn">Add Student</button>
+    </div>
+
+    <!-- قسم قائمة الطلاب -->
+    <div class="section">
+        <h2>Students List</h2>
+        <ul id="studentsList"></ul>
+    </div>
+
+    <!-- قسم تسجيل المقرر (قيم مطابقة للـ Union Type في TypeScript) -->
+    <div class="section">
+        <h2>Enroll in Course</h2>
+        <form id="enrollForm">
+            <div class="form-group">
+                <label for="studentSelect">Select Student:</label>
+                <select id="studentSelect">
+                    <option value="">-- Choose a Student --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="courseSelect">Select Course:</label>
+                <select id="courseSelect">
+                    <option value="">-- Choose a Course --</option>
+                    <option value="Advanced Internet Programming">Advanced Internet Programming</option>
+                    <option value="Network Security">Network Security</option>
+                    <option value="Operating Systems">Operating Systems</option>
+                </select>
+            </div>
+            <button type="submit">Enroll Student</button>
+        </form>
+    </div>
+
+    <!-- قسم جدول التسجيلات -->
+    <div class="section">
+        <h2>Enrollments Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Student Name</th>
+                    <th>Course Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- الصفوف تضاف ديناميكياً -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ربط ملف JavaScript المترجم من TypeScript كـ Module -->
+    <script type="module" src="dist/ui.js"></script>
+</body>
+</html>
